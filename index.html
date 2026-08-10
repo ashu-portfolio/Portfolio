@@ -1250,6 +1250,21 @@ aiOrbClose.addEventListener("click", (e) => {
   e.stopPropagation();
   aiOrb.style.display = "none";
 });
+  let wasDragging = false;
+
+aiOrb.addEventListener("pointerdown", () => {
+  wasDragging = false;
+});
+
+aiOrb.addEventListener("pointermove", () => {
+  wasDragging = true;
+});
+
+aiOrb.addEventListener("click", () => {
+  if (!wasDragging) {
+    window.location.href = "bot.html";
+  }
+});
 </script>
 <!-- ASHU AI FLOATING ORB -->
 <div class="ai-orb-widget" id="aiOrb">
