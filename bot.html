@@ -1,0 +1,24 @@
+const GROQ_API_KEY = "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";
+
+const response = await fetch(
+  "https://api.groq.com/openai/v1/chat/completions",
+  {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+      "Authorization": `Bearer ${GROQ_API_KEY}`
+    },
+    body: JSON.stringify({
+      model: "llama-3.3-70b-versatile",
+      messages: [
+        {
+          role: "user",
+          content: userMessage
+        }
+      ]
+    })
+  }
+);
+
+const data = await response.json();
+const answer = data.choices[0].message.content;
